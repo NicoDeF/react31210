@@ -1,9 +1,17 @@
+.navbar{
+    display: flex;
+}
+.itemlist{
+    position: absolute;
+    right: 60pc;
+   
+}
 .nav-item{
     text-decoration: none;
     color: whitesmoke;
     margin-left: 10px;
     margin: 0.5rem;
-    position: relative;
+    position: center;
     align-items: center;
 
 
@@ -14,6 +22,7 @@
     cursor:pointer;
     outline: inherit;
     width: 6%;
-    margin: left 1400px;
+    position: absolute;
+    right: 0;
    
 }

@@ -5,9 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import "./NavBar.css";
-import carlogo from "../../assets/carlogo.jpg"
+import carlogo from  '../../../assets/carlogo.jpg'
+import CartWidget from '../CartWidget/CartWidget';
 
 const menuItems =[
 {
@@ -22,7 +22,7 @@ const menuItems =[
 ]
  const NavBar = () => {
   return (
-    <div>
+    <div className='navbar'>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -35,15 +35,13 @@ const menuItems =[
           >
             <MenuIcon />
           </IconButton>
-          <ShoppingCartTwoToneIcon  fontSize="large"  />
-          
           <Button color="inherit" 
           size='large' 
           onClick={() => {
           alert('Logueado');
   }}>   
             Login</Button>
-          <div>
+          <div className='itemlist'>
             {menuItems.map((item) => (
               <a href='/' className='nav-item' key = {item.id}>
                 {item.label}
@@ -51,6 +49,7 @@ const menuItems =[
             ))}
             </div>
 
+            <CartWidget/>  
         
               <img src = {carlogo} alt= "carlogo Icon" className='img' />
           

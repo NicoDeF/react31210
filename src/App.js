@@ -1,11 +1,14 @@
 import React from "react";
-import NavBar from "./Components/NavBar/NavBar"
-//import Header from "./Components/Header/Header"
+import NavBar from "./Components/UI/NavBar/NavBar";
+import ItemListCointainer from "./Components/UI/ItemListContainer/ItemListContainer"
+
 
 const App = () => {
   return(
-    //<Header/>
+    <>
     <NavBar/>
+    <ItemListCointainer greeting ="Peugeot"/>
+    </>
     
   )
 }
