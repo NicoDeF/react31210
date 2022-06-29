@@ -1,0 +1,13 @@
+.container{
+    margin: 1 rem auto;
+    width: 30%;
+    height: 40%;
+}
+.boton1{
+    width: 10%;
+    height: 10%;
+    border: blue;
+}
+.container{
+    margin-block-end: auto;
+}

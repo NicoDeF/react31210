@@ -36,11 +36,7 @@ const menuItems =[
             <MenuIcon />
           </IconButton>
           <Button color="inherit" 
-          size='large' 
-          onClick={() => {
-          alert('Logueado');
-  }}>   
-            Login</Button>
+          size='large' onClick={() => { alert('Logueado'); }}> Login</Button>
           <div className='itemlist'>
             {menuItems.map((item) => (
               <a href='/' className='nav-item' key = {item.id}>
