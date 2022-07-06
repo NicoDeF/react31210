@@ -17,5 +17,5 @@ const products = [
       }else{
         reject('error')
       }
-    },3000)
+    },2000)
   })
