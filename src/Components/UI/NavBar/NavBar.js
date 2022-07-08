@@ -8,16 +8,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import "./NavBar.css";
 import carlogo from  '../../../assets/carlogo.jpg'
 import CartWidget from '../CartWidget/CartWidget';
+import  {Link, NavLink} from 'react-router-dom'
 
 const menuItems =[
 {
   id:1,
   label:"Usados",
-  
+  route:'/category/used'
 },
 {
   id:2,
-  label:"0km"
+  label:"0km",
+  route:'/category/new'
 }
 ]
  const NavBar = () => {
@@ -39,15 +41,15 @@ const menuItems =[
           size='large' onClick={() => { alert('Logueado'); }}> Login</Button>
           <div className='itemlist'>
             {menuItems.map((item) => (
-              <a href='/' className='nav-item' key = {item.id}>
+              <NavLink className='nav-item' key = {item.id} to={item.route}>
                 {item.label}
-              </a>
+                </NavLink> 
             ))}
             </div>
 
-            <CartWidget/>  
+            <Link to="/cart"><CartWidget/> </Link>
         
-              <img src = {carlogo} alt= "carlogo Icon" className='img' />
+            <Link to="/"><img src = {carlogo} alt= "carlogo Icon" className='img' /> </Link>
           
             
         </Toolbar>

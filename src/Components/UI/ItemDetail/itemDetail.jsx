@@ -1,16 +1,17 @@
 import React from 'react'
 
-export const ItemDetail = ({data}) =>{
+const ItemDetail = ({product}) =>{
+    const {img, name, description,id} = product
     return (
         <div className='container'>
         <div className='detail'>
-        <img className='detail_image' src={data.image} />   
+        <img className='detail_image' src= {img} />   
         <div className='content'>
-        <h1>{data.name} </h1>
+        <h1>{name} </h1>
         </div>
         </div>
         </div>
     );
-}
 
+    }
 export default ItemDetail

@@ -1,9 +1,9 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 const Item = ({product}) => {
-  console.log(product)
-  const {img, name, description}= product
+  const {img, name, description,id} = product
 
   return (
     <div className="card" style={{width:'20rem', margin:'.5rem'}}>
@@ -12,7 +12,7 @@ const Item = ({product}) => {
         <p className="card-text">{name}</p>
         <p className="card-text">{description}</p>
     </div>
-    <button className='btn btn-primary'>Ver más</button>
+    <Link to={`/detail/${id}`}>Ver Detalles </Link>
 </div>
   )
 }

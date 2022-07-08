@@ -1,25 +1,35 @@
 import React, {useEffect,useState} from 'react'
 import ItemDetail from '../ItemDetail/itemDetail';
+import {getOne} from '../../mocks/fakeApi'
+import { useParams } from 'react-router-dom';
+import { CircularProgress } from "@mui/material";
 
-const oneProd = {id:14, image:'https://rickandmortyapi.com/api/character/avatar/14.jpeg', name:'Alien Morty'}
 
-export const ItemDetailContainer = () =>{
-const [data,setData] = useState({})
+const ItemDetailContainer = () =>{
+    const [product, setProduct]=useState([])
+    const [loading, setLoading]=useState(true)
+
+    const {id} = useParams()
 
 useEffect(() => {
-    const getData = new Promise (resolve => {
-        setTimeout(() => {
-            resolve(oneProd)
-        }, 3000);
-        })
-
-        getData.then(res => setData(res))
-    }, [])
+    getOne(id)
+    .then((res) => {
+        setProduct(res)
+        console.log(product)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    .finally(() => {
+        setLoading(false)
+    })
+    } ,[id])
 
 
     return (
-        <ItemDetail data={data} />
+        <>
+        {loading ? <CircularProgress color ='success' /> : <ItemDetail product ={product}/>}
+        </>
     );
 }
-
 export default ItemDetailContainer
