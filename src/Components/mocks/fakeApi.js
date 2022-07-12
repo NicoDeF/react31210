@@ -27,7 +27,7 @@ export const getOne = (id) => {
 
   return new Promise ((resolve, reject) => {
     
-    const foundProd = products.find(prod => prod.id );
+    const foundProd = products.find(prod => prod.id === id );
 
     setTimeout(()=>{
      resolve(foundProd)

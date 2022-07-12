@@ -19,11 +19,11 @@ const App = () => {
     <NavBar/>
     <Routes>
 
-    <Route  path='/'  element={<ItemListCointainer/>} /> 
+    <Route  path='/'                     element={<ItemListCointainer/>} /> 
     <Route  path='/category/:categoryId' element={<ItemListCointainer/>}  />
     <Route  path='/category/:productId'  element={<ItemDetailContainer/>} />
-    <Route  path='/detail/:productId'  element={<ItemDetail /> } />
-    <Route  path='/cart'  element={<Cart /> } />
+    <Route  path='/detail/:productId'    element={<ItemDetailContainer/> } />
+    <Route  path='/cart'                 element={<Cart/> } />
     </Routes>
     </BrowserRouter>
   )
