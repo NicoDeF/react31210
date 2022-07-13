@@ -1,12 +1,11 @@
 import React from "react";
 import { useEffect, useState } from 'react'
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import './ItemListContainer.css'
 import { getData } from '../../mocks/fakeApi.js'
 import { CircularProgress } from "@mui/material";
 import { useParams } from 'react-router-dom'
-//import { SpinnerCircular } from 'spinners-react'
+
 
 
 const ItemListCointainer =() => {
@@ -17,9 +16,6 @@ const ItemListCointainer =() => {
   const {categoryId} = useParams()
   
 
-    //    const onAdd = (cant) => {
-    //    console.log(`Se agrego ${cant}`)
-    //}
 
         const getProducts = async () => {
           setLoading(true)

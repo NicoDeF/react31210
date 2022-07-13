@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Button from '@mui/material/Button';
 import './ItemCount.css'
 
-function ItemCount ({stock,model, onAdd }) {
+function ItemCount ({stock,onAdd }) {
     const [amount,setAmount] = useState (1)
 
     const cont = (value) => {
@@ -22,7 +22,6 @@ const agregarCant = () => {
         <Button className='boton1' variant="text"  onClick={()=>cont(-1)}>-</Button>
         <span>{amount}</span>
         <Button className='boton1' variant="text"    onClick={()=>cont(+1)}>+</Button>
-        <span>{model}</span>
         </div>
         <Button variant="contained"  
          onClick= {agregarCant} >Agregar al carrito</Button>

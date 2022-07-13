@@ -1,16 +1,19 @@
-MarketPlace de Automoviles
+##MarketPlace de Automoviles De Filpo
 
-1er proyecto realizado con React Js
+1er proyecto realizado con libreria React Js
 
 El mismo contara con listado de autos tanto usados como 0KM de automoviles
-
 
 
 ## Updates
 
 #Skills applied
-Promises, asincs, MAPS, conexions fakeApi, Rounting and Navegation
+Promises, asincs, MAPS, conexions fakeApi, Routing and Navegation
 
-#07/07
+12/07
 
-Item detail component its not  working correctly
+*Count Component added to ItemDetail Component
+
+## Work to do
+
+Improve look and feel
