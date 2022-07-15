@@ -14,6 +14,11 @@ Promises, asincs, MAPS, conexions fakeApi, Routing and Navegation
 
 *Count Component added to ItemDetail Component
 
+14/07
+
+*Added CartContext component and new  global function for the Cart
+
 ## Work to do
 
 Improve look and feel
+Improve Cart View
