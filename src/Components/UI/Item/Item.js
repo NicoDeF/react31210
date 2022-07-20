@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { CartContext } from '../../../context/CarContext'
 
 
 const Item = ({product}) => {
