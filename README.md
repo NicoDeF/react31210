@@ -18,7 +18,12 @@ Promises, asincs, MAPS, conexions fakeApi, Routing and Navegation
 
 *Added CartContext component and new  global function for the Cart
 
+19/07
+
+*Added Cart and ItemCart components
+
 ## Work to do
 
 Improve look and feel
 Improve Cart View
+Improve functions in Cart and ItemCart 
