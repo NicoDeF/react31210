@@ -1,50 +1,58 @@
-import React, {useState, useContext} from 'react'
+import React, {createContext, useEffect, useState} from "react"
 
-const CartContext = React.createContext([])
+export const cartContext = createContext();
+const {Provider} = cartContext;
 
-export const useCartContext = () => useContext(CartContext)
+const CartContext = ({children}) => 
+{
+    const [products, setProducts] = useState ([]);
+    const [qtyProducts, setQtyProducts] = useState(0)
+    
 
-const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([])
+    useEffect ( () => {
+        setQtyProducts(products.reduce((acc, product) => acc + product.qty, 0));
+    }, [products])
 
-    const addProduct = (item, newQuantity) => {
-        const newCart = cart.filter(prod => prod.id !== item.id)
-        newCart.push({ ...item, quantity:newQuantity})
-        setCart(newCart)
+    const addProduct = (product) => {
+
+        if(isInCart(product.id)) {
+
+           const index = products.findIndex(p => p.id === product.id);
+            const aux = [...products];
+            aux[index].qty += product.qty;
+            setProducts(aux);
+
+         } else{
+            setProducts([...products,product]);
+            }
     }
 
-    console.log('carrito :', cart)
-
-    const cleanCart = () => setCart([])
+    const deleteProduct = (id) => {
+       setProducts (products.filter (product => product.id !== id));
+    }
 
     const isInCart = (id) => {
-        return cart.find(product => product.id ===id)
-        ? true
-        : false
+        return products.some(products => products.id === id); 
     }
 
-    const removeProduct = (id) => setCart(cart.filter(product => product.id !== id))
 
-    const totalPrice = () => {
-        return cart.reduce((prev, act) => prev = act.quantity * act.price, 0)
+    const clear = () => {
+        setProducts([])
     }
-
-    const totalProds = () => cart.reduce((acum, actualProduct) => acum + actualProduct.quantity, 0)
-
     
-    return (
-        <CartContext.Provider value = {{
-            addProduct,
-            cleanCart,
-            isInCart,
-            removeProduct,
-            totalPrice,
-            totalProds,
-            cart
-        }}>
-            {children}
-        </CartContext.Provider>
+    const calcularTotal = () => {
+        return products.reduce(
+            (acum, actual) => acum + actual.price * actual.qty,
+            0
+        );
+    };
+
+    return(
+        <Provider value ={{products,addProduct,clear,qtyProducts,calcularTotal, deleteProduct}}>
+        {children}
+        </Provider>
     )
+
 }
 
-export default CartProvider
+export default CartContext

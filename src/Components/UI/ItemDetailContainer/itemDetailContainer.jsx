@@ -1,8 +1,9 @@
 import React, {useEffect,useState} from 'react'
 import ItemDetail from '../ItemDetail/itemDetail';
-import {getOne} from '../../mocks/fakeApi'
 import { useParams } from 'react-router-dom';
 import { CircularProgress } from "@mui/material";
+import { db } from "../../Firebase/Firebase"
+import {doc, getDoc, collection} from "firebase/firestore";
 
 
 const ItemDetailContainer = () =>{
@@ -12,18 +13,17 @@ const ItemDetailContainer = () =>{
     const {productId} = useParams()
 
 useEffect(() => {
-    getOne(productId)
-    .then((res) => {
-        setProduct(res)
-        console.log(productId)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-    .finally(() => {
-        setLoading(false)
-    })
-    } ,[productId])
+    const productsCollection = collection(db, "products");
+        const refDoc = doc(productsCollection, productId)
+        getDoc(refDoc).then(result => {
+            setProduct({
+                productId: result.id,
+                ...result.data(),
+            })
+        })
+        .finally(()=> setLoading(false))
+        
+        }, [productId])
 
 
     return (

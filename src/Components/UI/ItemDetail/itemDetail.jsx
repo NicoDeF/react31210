@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { useCartContext } from '../../../context/CarContext';
+import React, { useState,useContext } from 'react'
+import { cartContext } from '../../../context/CarContext';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
+import "./itemDetail.css"
 
 const ItemDetail = ({product}) =>{
     const {img, name, description,id, price} = product
     const [goToCart, setGoToCart] = useState(false)
-    const {addProduct} = useCartContext()
+    const {addProduct} = useContext(cartContext)
 
 
     const onAdd =(quantity) => {
@@ -15,12 +16,11 @@ const ItemDetail = ({product}) =>{
     }
     
     return (
-        <div className='container'>
-        <div className='detail'>
-        <img className='detail_image' src= {img} alt= '' />   
-        <div className='content'>
-        <h1>{name} </h1>
-        <h2>Precio: {price}$</h2>
+        <div>
+        <img className='imgItemDetail' src= {img} alt= '' />   
+   
+        <h1 className='hItemDetail'>{name} </h1>
+        <h2 className='hItemDetail'>Precio: {price}$</h2>
         <p>{description}</p>
         {
             goToCart
@@ -29,9 +29,6 @@ const ItemDetail = ({product}) =>{
         } 
         <Link to='/'>Seguir comprando</Link>
         </div>
-        </div>
-        </div>
-    );
-
+    )
     }
 export default ItemDetail

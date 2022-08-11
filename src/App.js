@@ -9,6 +9,7 @@ import{
   Route,
 } from 'react-router-dom';
 import CartProvider from "./context/CarContext";
+import Checkout from "./Components/UI/Checkout/Checkout";
 
 
 
@@ -23,7 +24,9 @@ const App = () => {
     <Route  path='/category/:productId'  element={<ItemDetailContainer/>} />
     <Route  path='/detail/:productId'    element={<ItemDetailContainer/> } />
     <Route  path='/cart'                 element={<Cart/> } />
+    <Route  path='/checkout' element={<Checkout/>}/>
     </Routes>
+    
     </CartProvider>
 
     </BrowserRouter>
